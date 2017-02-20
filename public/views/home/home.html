@@ -1,0 +1,222 @@
+<div class="" role="main">
+  <!-- top tiles -->
+  <div class="row tile_count">
+    <div class="col-md-1 col-sm-4 col-xs-6 tile_stats_count">
+      <span class="count_top"><i class="fa fa-clock-o"></i> Total </span>
+      <div class="count">{{Totales.casos}}</div>
+      <span class="count_bottom">Casos</span>
+    </div>
+    <div class="col-md-1 col-sm-4 col-xs-6 tile_stats_count">
+      <span class="count_top"><i class="fa fa-address-book-o"></i> Casos</span>
+      <div class="count green">{{Totales.casos_resueltos}}</div>
+      <span class="count_bottom"><i class="green">Resueltos</i></span>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+      <span class="count_top"><i class="fa fa-address-book"></i> Casos </span>
+      <div class="count red">{{Totales.casos_no_resueltos}}</div>
+      <span class="count_bottom"><i class="red">No resueltos</i></span>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+      <span class="count_top"><i class="fa fa-female"></i> Demandantes</span>
+      <div class="count">{{Totales.mujeres_demandantes}}</div>
+      <span class="count_bottom"> Mujeres</span>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+      <span class="count_top"><i class="fa fa-male"></i> Demandantes</span>
+      <div class="count">{{Totales.hombres_demandantes}}</div>
+      <span class="count_bottom"> Hombres</span>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+      <span class="count_top"><i class="fa fa-female"></i> Demandadas</span>
+      <div class="count">{{Totales.mujeres_demandadas}}</div>
+      <span class="count_bottom"> Mujeres</span>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+      <span class="count_top"><i class="fa fa-male"></i> Demandados</span>
+      <div class="count">{{Totales.hombres_demandados}}</div>
+      <span class="count_bottom"> Hombres</span>
+    </div>
+
+    <div class="col-md-12 col-sm-4 col-xs-6 tile_stats_count">
+      <div class="col-md-4">
+        <div class="btn-group">
+          <button class="btn  btn-info btn-xs" type="button" ng-click="historico()"> Reporte Historico</button>
+          <button class="btn btn-default btn-xs" type="button" ng-click="estaSemana()"> Reporte de esta Semana</button>
+        </div>
+        <br ><strong>Gráficas únicamente en base a rango de fechas</strong>
+      </div>
+      <div class="col-md-2 dashboard_graph">
+        <h2>Tipos de Casos</h2>
+        <canvas id="doughnut" class="chart chart-doughnut"
+          chart-data="data_tipocasos" chart-labels="labels_tipocasos">
+        </canvas> 
+      </div>
+
+      <div class="col-md-2 dashboard_graph">
+        <h2>Denunciantes</h2>
+        <canvas id="doughnut" class="chart chart-doughnut"
+          chart-data="data_denunciantes" chart-labels="labels_denciantes">
+        </canvas> 
+      </div>
+
+      <div class="col-md-2 dashboard_graph">
+        <h2>Denunciados</h2>
+        <canvas id="doughnut" class="chart chart-doughnut"
+          chart-data="data_denunciados" chart-labels="labels_denciados">
+        </canvas> 
+      </div>
+
+      <div class="col-md-2 dashboard_graph">
+        <h2>Lugares</h2>
+        <canvas id="doughnut" class="chart chart-doughnut"
+          chart-data="data_lugares" chart-labels="labels_lugares">
+        </canvas> 
+      </div>
+    </div>
+    
+  </div>
+  <!-- /top tiles -->
+
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="dashboard_graph">
+
+        <div class="row x_title">
+          <div class="col-md-6 col-xs-12 form-group has-feedback">
+            <label for="daterange"> Crear reporte a partir de un rago de fechas - Inicio <i class="fa fa-calendar"></i><i class="fa fa-arrows-h"></i><i class="fa fa-calendar"></i> Fin</label>
+            <input id="daterange" ng-model="datePicker.date" date-range-picker type="text" class="form-control has-feedback-left" ng-required="true" name="nombre_demandante" placeholder="Selecciona el ragno de fecha ">
+
+            <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
+          </div> 
+
+          <div class="col-md-2 col-xs-12 form-group has-feedback">
+            <strong>Estado del caso</strong>
+            <div class="radio">
+              <label>
+                <input type="radio" ng-model="Caso.estado" name="optionsRadios" id="optionsRadios1" value="" >
+                TODOS
+              </label>
+            </div>  
+            <div class="radio">
+              <label>
+                <input type="radio" ng-model="Caso.estado" name="optionsRadios" id="optionsRadios2" value="1" checked>
+                NO Resueltos
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" ng-model="Caso.estado" name="optionsRadios" id="optionsRadios1" value="0" >
+                Resueltos
+              </label>
+            </div>
+          </div>    
+          <div class="col-md-2 col-xs-12 form-group has-feedback">
+            <div class="radio">
+              <strong>Género Demandante</strong>
+              <label>
+                <input type="radio" ng-model="Caso.genero_d" name="Genero" id="optionsRadios0" value="" checked>
+                TODOS
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" ng-model="Caso.genero_d" name="Genero" id="optionsRadios2" value="0" checked>
+                Género Femenino
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" ng-model="Caso.genero_d" name="Genero" id="optionsRadios1" value="1" >
+                Género Masculino
+              </label>
+            </div>
+          </div> 
+          <div class="col-md-2 col-xs-12 form-group has-feedback">
+            <div class="radio">
+              <strong>Género Demandado</strong>
+              <label>
+                <input type="radio" ng-model="Caso.genero" name="Genero_D" id="1optionsRadios0" value="" checked>
+                TODOS
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" ng-model="Caso.genero" name="Genero_D" id="1optionsRadios2" value="0" checked>
+                Género Femenino
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" ng-model="Caso.genero" name="Genero_D" id="1optionsRadios1" value="1" >
+                Género Masculino
+              </label>
+            </div>
+          </div> 
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" >
+            <select name="tipocaso_id" ng-model="Caso.tipocaso_id" ng-options="tipocaso.id as tipocaso.nombre for tipocaso in tipocasos" class="form-control" ng-required="true">
+              <option value="">Seleccione el tipo de caso</option>
+            </select>
+          </div>      
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            <select name="lugar_id" ng-model="Caso.lugar_id" ng-options="lugar.id as lugar.nombre for lugar in lugares" class="form-control" ng-required="true">
+              <option value="">Lugar de Acontecimiento</option>
+            </select>
+          </div>  
+        </div>
+
+           
+        <div class="x_content">
+          <div class="clearfix"></div>
+          
+        </div>
+
+        <div class="clearfix"></div>
+
+        <table class="table table-condensed table-bordered table-hover" >
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Fecha</th>
+              <th>Estado</th>
+              <th>Demandante</th>
+              <th>Demandado</th>
+              <th>Lugar</th>
+              <th>Tipo de Caso</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr 
+              ng-repeat="caso in casos |  filter : {
+                resuelto : Caso.estado, 
+                lugar_id : Caso.lugar_id,
+                tipocaso_id : Caso.tipocaso_id,
+                demandante : {sexo: Caso.genero_d},
+                demandado : {sexo: Caso.genero},
+              }" 
+              ng-class="{warning: !caso.resuelto }"
+            >
+              <td>{{$index  + 1 }}</td>
+              <td>{{caso.fecha | date:'dd-MM-yyyy'}}</td>
+              <th ng-if="caso.resuelto"> Resuelto</th>
+              <th ng-if="!caso.resuelto"> No Resuelto</th>
+              <td>{{caso.demandante.nombre}}</td>
+              <td>{{caso.demandado.nombre}}</td>
+              <td>{{caso.lugar.nombre}}</td>
+              <td>{{caso.tipocaso.nombre}}</td>
+              <td>
+                <a class="btn btn-xs btn-info" uib-tooltip="Editar" href="#/denuncia/ver/{{caso.id}}"> 
+                  <i class="fa fa-eye"></i> 
+                </a> 
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+    </div>
+    
+    
+    
+  </div>
+  <br />

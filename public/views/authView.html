@@ -1,0 +1,30 @@
+	<form>
+      <h1><i class="fa fa-university"></i> Municipalidad</h1>
+      <div>
+        <input type="text" class="form-control" placeholder="Usuario" ng-model="auth.email">
+      </div>
+      <div>
+        <input type="password" class="form-control" placeholder="Contraseña" ng-model="auth.password">
+      </div>
+      <div>
+        <button type="submit" class="btn btn-primary" ng-click="auth.login()">Acceder</button>
+      </div>
+      <div class="col-md-12" ng-if="auth.loginError">
+        <div class="alert alert-danger alert-dismissible fade in" role="alert">
+          <button ng-click="auth.cerrar()" type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+          </button>
+          <strong>Error</strong> Acceso Denegado
+        </div>
+      </div>
+      <div class="clearfix"></div>
+
+      <div class="separator">
+        <div class="clearfix"></div>
+        <br />
+        
+        <div>
+          <h1>Formulario de Ingreso</h1>
+          <p>©2016 Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </form>
