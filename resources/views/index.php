@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Minicipalidad</title>
+        <title>Calendar</title>
 
         <!-- Bootstrap -->
         <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -31,8 +31,7 @@
     <body  
         ng-app="authApp" 
         ng-controller="BodyController" 
-        class=" nav-md" 
-        ng-class="{login: isActive('/auth')}"
+        ng-class="{login: isActive('/auth'), 'nav-sm': $root.navsm, 'nav-md': !$root.navsm}"
     >
 
         <div class="container">
@@ -94,10 +93,11 @@
     <script src="scripts/authController.js"></script>
     <script src="scripts/userController.js"></script>
     <script src="scripts/menuController.js"></script>
-    <script src="scripts/denunciaController.js"></script>
-    <script src="scripts/lugarController.js"></script>
-    <script src="scripts/etniaController.js"></script>
+    
     <script src="scripts/tipocasoController.js"></script>
     <script src="scripts/usuarioController.js"></script>
     <script src="scripts/homeController.js"></script>
+    
+    <!-- Custom Theme Scripts -->
+    <script src="build/js/custom.min.js"></script>
 </html>

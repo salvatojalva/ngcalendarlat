@@ -22,16 +22,10 @@ Route::group(['prefix' => 'api'], function()
 	Route::get('authenticate/user', 'AuthenticateController@getAuthenticatedUser');
 	Route::get('is_logged', 'AuthenticateController@is_logged');
 
-	Route::resource('lugar', 'LugarController');
-	Route::resource('etnia', 'EtniaController');
+	
 	Route::resource('tipocaso', 'TipoCasoController');
 	Route::resource('usuario', 'UserController');
-	Route::resource('casos', 'CasoController');
-	Route::resource('cita', 'CitaController');
+	Route::resource('roles', 'RolController');
 
-	Route::post('denuncia', 'CasoController@crear');
-	Route::get('reporte/{fecha_inicio}/{fecha_final}/{todos}', 'CasoController@buscarCasos');
-	
-	Route::get('miscasos/{user_id}', 'CasoController@miscasos');
 
 });

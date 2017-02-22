@@ -4,7 +4,7 @@
         <div class="col-md-3 left_col" ng-controller="MenuController">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-university"></i> <span>Municipalidad</span></a>
+              <a href="#" class="site_title"><i class="fa fa-calendar"></i> <span>Calendar</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -53,8 +53,8 @@
         <div class="top_nav" >
           <div class="nav_menu">
             <nav>
-              <div class="nav toggle">
-                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              <div class="nav toggle" ng-controller="BodyController">
+                <a id="menu_toggle"><i class="fa fa-bars" ng-click="cambiar()"></i></a>
               </div>
 
               <ul class="nav navbar-nav navbar-right">
