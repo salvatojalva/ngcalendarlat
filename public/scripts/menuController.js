@@ -25,11 +25,15 @@
       }
     }
 
-    function  BodyController($scope, $location){
+    function  BodyController($scope, $location, $rootScope){
       $scope.isActive = function (viewLocation1) {
         var active = (viewLocation1 === $location.path());
         return active;
       }
+      $scope.cambiar = function(){
+        $rootScope.navsm = !$rootScope.navsm;
+      }
+      
     }
 
     function LogoutService($http, $auth, $rootScope) {

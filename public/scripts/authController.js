@@ -26,7 +26,7 @@
 
                 // Return an $http request for the now authenticated
                 // user so that we can flatten the promise chain
-                return $http.get('/muni/public/api/authenticate/user');
+                return $http.get('/api/authenticate/user');
 
             // Handle errors
             }, function(error) {

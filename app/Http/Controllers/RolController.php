@@ -8,9 +8,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
-use App\Lugar;
+use App\Rol;
 
-class LugarController extends Controller
+class RolController extends Controller
 {
 
      public function __construct()
@@ -26,7 +26,7 @@ class LugarController extends Controller
      */
     public function index()
     {
-        return Lugar::all();
+        return Rol::all();
     }
 
     /**
@@ -35,10 +35,10 @@ class LugarController extends Controller
      * @return Response
      */
     public function store(Request $request) {
-        $lugar = new Lugar();
-        $lugar->fill($request->all());
-        $lugar->save();
-        return $lugar;
+        $Rol = new Rol();
+        $Rol->fill($request->all());
+        $Rol->save();
+        return $Rol;
     }
 
     /**
@@ -50,7 +50,7 @@ class LugarController extends Controller
     public function show($id)
     {
 
-        return Lugar::find($id);
+        return Rol::find($id);
     }
 
     /**
@@ -61,10 +61,10 @@ class LugarController extends Controller
      */
     public function update($id, Request $request)
     {
-        $lugar = Lugar::find($id);
-        $lugar->fill( $request->all());
-        $lugar->save();
-        return $lugar;
+        $Rol = Rol::find($id);
+        $Rol->fill( $request->all());
+        $Rol->save();
+        return $Rol;
     }
 
     /**
@@ -75,6 +75,6 @@ class LugarController extends Controller
      */
     public function destroy($id)
     {
-        return Lugar::destroy($id);
+        return Rol::destroy($id);
     }
 }
