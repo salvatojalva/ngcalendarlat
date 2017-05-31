@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use App\User;
+use App\Rol;
 
 class AuthenticateController extends Controller
 {
@@ -85,6 +86,7 @@ class AuthenticateController extends Controller
         }
 
         // the token is valid and we have found the user via the sub claim
+        $user->Rol = Rol::find($user->rol_id);
         return response()->json(compact('user'));
     }
 }

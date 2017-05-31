@@ -27,6 +27,7 @@
         <link href="vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
         <!-- Custom Theme Style -->
         <link href="vendors/css/custom.min.css" rel="stylesheet">
+        <link href="vendors/css/call.css" rel="stylesheet">
     </head>
     <body  
         ng-app="authApp" 
@@ -85,18 +86,25 @@
     <script src="node_modules/satellizer/satellizer.js"></script>
     <script src="scripts/dep/angular-daterangepicker.js"></script>
     <script src="vendors/Chart.js/dist/angular-chart.js"></script>
+    <script src="scripts/dep/fullcalendar.js"></script>
+    <script src="scripts/dep/gcall.js"></script>
+    <script src="scripts/dep/ui-caledar.js"></script>
+    
     
 
 
     <!-- SCRIPTS DE LA APLICACION -->
     <script src="scripts/app.js"></script>
+    <script src="scripts/routes.js"></script>
     <script src="scripts/authController.js"></script>
     <script src="scripts/userController.js"></script>
     <script src="scripts/menuController.js"></script>
+    <script src="scripts/directives/menu.js"></script>
     
     <script src="scripts/tipocasoController.js"></script>
     <script src="scripts/usuarioController.js"></script>
     <script src="scripts/homeController.js"></script>
+    <script src="scripts/tCalendarController.js"></script>
     
     <!-- Custom Theme Scripts -->
     <script src="build/js/custom.min.js"></script>

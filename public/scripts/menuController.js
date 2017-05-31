@@ -7,8 +7,8 @@
     .controller('BodyController', BodyController)
     .service('LogoutService', LogoutService);
     
-    function MenuController($scope, $location, $auth, LogoutService, $http) {
-
+    function MenuController($scope, $location, $auth, LogoutService, $http, $rootScope) {
+      $scope.currentUser = $rootScope.currentUser;
       $scope.isLogged = function(){
         $http({
           'method': "GET",

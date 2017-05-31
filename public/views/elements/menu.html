@@ -1,0 +1,27 @@
+
+<ul class="nav side-menu" ng-if="$root.currentUser.Rol.id == 1">
+    <!-- Administrator menu -->
+    <li><a href="#/home"><i class="fa fa-home"></i> Inicio </a></li>
+    <li><a href="#/denuncia/list"><i class="fa fa-address-book-o"></i> Denuncias</a></li>
+    <li><a href="#/usuario/list"><i class="fa fa-users"></i> Usuarios</a></li>
+    <li><a href="#/etnia/list"><i class="fa fa-user-circle"></i> Etnias</a></li>
+    <li><a href="#/lugar/list"><i class="fa fa-map-marker"></i> Lugares</a></li>
+    <li><a href="#/tipocaso/list"><i class="fa fa-id-badge"></i> Tipos de Casos</a></li>
+</ul>
+
+<ul class="nav side-menu" ng-if="$root.currentUser.Rol.id == 2">
+    <!-- Teacher menu -->
+    <li><a href="#/home"><i class="fa fa-home"></i> Inicio </a></li>
+    <li><a href="#/teacher/calendar"><i class="fa fa-calendar"></i> Calendario</a></li>
+    <li><a href="#/denuncia/list"><i class="fa fa-address-book-o"></i> Pendientes</a></li>
+    <li><a href="#/etnia/list"><i class="fa fa-user-circle"></i> Configuraciones</a></li>
+  
+</ul>
+
+<ul class="nav side-menu" ng-if="$root.currentUser.Rol.id == 3">
+    <!-- Student menu -->
+    <li><a href="#/home"><i class="fa fa-home"></i> Inicio </a></li>
+    <li><a href="#/home"><i class="fa fa-home"></i> Clases </a></li>
+    <li><a href="#/home"><i class="fa fa-home"></i> Creditos </a></li>
+    <li><a href="#/home"><i class="fa fa-home"></i> Cuenta </a></li>
+</ul>
